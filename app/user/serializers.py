@@ -33,7 +33,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
-class AuthtokenSerializer(serializers.Serializer):
+class AuthTokenSerializer(serializers.Serializer):
     """Serializer for the user auth token."""
     email = serializers.EmailField()
     password = serializers.CharField(
@@ -50,7 +50,7 @@ class AuthtokenSerializer(serializers.Serializer):
             username=email,
             password=password,
         )
-        
+
         if not user:
             msg = _('Unable to authenticate with provided credentials.')
             raise serializers.ValidationError(msg, code='authorization')
